@@ -1,0 +1,29 @@
+balance = float(input("Enter your starting balance: "))
+
+print("\nWelcome to Simple Bank")
+print("1. Deposit")
+print("2. Withdraw")
+print("3. Check Balance")
+
+choice = int(input("Enter your choice (1/2/3): "))
+
+if choice == 1:
+    amount = float(input("Enter amount to deposit: "))
+    balance += amount
+    print("Deposited:", amount)
+    print("Updated Balance:", balance)
+
+elif choice == 2:
+    amount = float(input("Enter amount to withdraw: "))
+    if amount <= balance:
+        balance -= amount
+        print("Withdrawn:", amount)
+        print("Updated Balance:", balance)
+    else:
+        print("Insufficient Balance! Current Balance:", balance)
+
+elif choice == 3:
+    print("Your Balance:", balance)
+
+else:
+    print("Invalid Choice! Please try again.")
