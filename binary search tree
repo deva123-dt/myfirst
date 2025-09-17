@@ -1,0 +1,47 @@
+class Node:
+    def __init__(self, val):
+        self.data = val
+        self.left = None
+        self.right = None
+
+class BST:
+    def __init__(self):
+        self.root = None
+
+    def insert(self, node, data):
+        if node is None:
+            return Node(data)
+        if data < node.data:
+            node.left = self.insert(node.left, data)
+        else:
+            node.right = self.insert(node.right, data)
+        return node
+
+    def inorder(self, root):
+        if root:
+            self.inorder(root.left)
+            print(root.data, end=" ")
+            self.inorder(root.right)
+
+    def preorder(self, root):
+        if root:
+            print(root.data, end=" ")
+            self.preorder(root.left)
+            self.preorder(root.right)
+
+    def postorder(self, root):
+        if root:
+            self.postorder(root.left)
+            self.postorder(root.right)
+            print(root.data, end=" ")
+
+t1 = BST()
+values = list(map(int,input().split()))
+for v in values:
+    t1.root = t1.insert(t1.root, v)
+t1.inorder(t1.root)    
+print()
+t1.preorder(t1.root)   
+print()
+t1.postorder(t1.root)  
+print()
